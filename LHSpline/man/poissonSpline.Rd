@@ -8,7 +8,10 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-poissonSpline(x, y, lambdaGrid, gStart = NULL, nIteration = 50, tol = 1e-06, epsilon = 0, verbose = FALSE, whichCV = 4)
+poissonSpline(x, y, lambdaGrid, gStart = NULL, nIteration = 50, tol = 1e-06,
+epsilon = 0, verbose = FALSE, whichCV = 4)
+poissonSplineLambda(x, y, gStart, lambda, SigmaInv, epsilon,
+ Q, nIteration = 10, tol = 1e-06, verbose = FALSE, gFloor = -15, gCeiling = 10)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

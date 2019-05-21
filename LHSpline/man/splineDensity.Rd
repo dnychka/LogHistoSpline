@@ -1,7 +1,7 @@
 \name{splineDensity}
 \alias{splineDensity}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{
+\title{Log density estimate as a cubic spline
 %%  ~~function to do ... ~~
 }
 \description{
