@@ -53,7 +53,7 @@ splineDensity<- function( Y, xlim = NULL,
 # lambda fit.    
    lambdaEst<- fit$lambdaEst
    gHat<- fit$gHat
-#xr<- xlim
+#xr<- xlim 
 # spline interval may be different than the data range   
   xr<- range( binMidpoints)
   dx<- xr[2] - xr[1]
