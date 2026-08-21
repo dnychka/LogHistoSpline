@@ -97,8 +97,6 @@ set.panel()
 # compact support
 set.seed( 322)
 Y <- rbeta( 2000, shape1= 5, shape2=.5)
-
-xlim=c(0,1) )
 fitY<- splineDensity( Y, xlim=c(0,1), threshold=c(TRUE,TRUE) )
 set.panel(2,2 )
 plot( fitY)

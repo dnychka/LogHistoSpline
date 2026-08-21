@@ -1,5 +1,5 @@
 Package: LHSpline
-Version: 1.1
+Version: 1.2
 Date: 2019-05-21
 Title: log Histospline density estimate
 Authors@R: c( person("Douglas", "Nychka", role = c("aut", "cre")),

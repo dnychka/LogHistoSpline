@@ -1,0 +1,2 @@
+poissonSpline           Estimates a Poisson cubic smoothing spline
+splineDensity           Log density estimate as a cubic spline

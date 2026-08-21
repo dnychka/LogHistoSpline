@@ -114,9 +114,7 @@ Green, Peter J., and Bernard W. Silverman. Nonparametric regression and generali
 Douglas Nychka
 %%  ~~who you are~~
 }
-\note{
-%%  ~~further notes~~
-}
+
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
@@ -124,29 +122,34 @@ Douglas Nychka
  \code{\link{splineDensity}}, \code{\link{splint}}
 }
 \examples{
-set.seed(123)
-x<- seq( 0,1,length.out= 150)
-alphaTrue<-  exp( 6*x^2*(1-x))
-alphaTrue<-  25*alphaTrue/ max( alphaTrue)
+set.seed(12)
+x<- seq( 0,1,length.out= 250)
+alphaTrue<-  exp( 25*x^3*(1-x) )
+#alphaTrue<-  alphaTrue/ max( alphaTrue)
 gTrue<- log(alphaTrue )
 y<- rpois(length( alphaTrue), lambda=alphaTrue)
-lambdaGrid<- 10**( seq( -3, 0,length.out=50))
+
+
+lambdaGrid<- 10**( seq( -3, -1,length.out=150))
 fit1<- poissonSpline( x,y, lambdaGrid= lambdaGrid)
+
 set.panel(3,1)
-plot( x,y)
-lines( x, fit1$fitted.values)
+plot( x,y, pch=16, col="grey", cex=.5)
+lines( x, alphaTrue, col="red", lty=1)
+lines( x, fit1$fitted.values, col="blue", lty=1)
 title("Counts and fitted curve")
 
-plot( x,fit1$gHat, type="l" )
+plot( x,fit1$gHat, type="l" , col="blue")
 lines(x , gTrue, col="red")
-title("Estimated and true (red) log intensity functions")
+title("Estimated (blue) and true (red) log intensity")
 
-plot( fit1$info[,6], fit1$info[,fit1$whichCV] ,
+plot( fit1$info[,1], fit1$info[,4] ,
 type="b",
 pch=16,cex=.5,
-xlab="effective df", ylab="CV function")
-xline( (fit1$fit$trA))
+xlab="log lambda", ylab="CV function", log="x")
+xline( (fit1$fit$lambda), col="blue")
 title("CV criterion with minimum")
+
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

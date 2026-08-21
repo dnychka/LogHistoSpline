@@ -1,3 +1,6 @@
 
 
 exportPattern("^[^\\.]")
+S3method(plot,splineDensity)
+S3method(predict,PoissonSpline)
+S3method(print,splineDensity)

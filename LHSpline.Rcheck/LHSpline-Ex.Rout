@@ -1,0 +1,167 @@
+
+R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "LHSpline"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> library('LHSpline')
+Loading required package: fields
+Loading required package: spam
+Loading required package: dotCall64
+Loading required package: grid
+Spam version 2.5-1 (2019-12-12) is loaded.
+Type 'help( Spam)' or 'demo( spam)' for a short introduction 
+and overview of this package.
+Help for individual functions is also obtained by adding the
+suffix '.spam' to the function name, e.g. 'help( chol.spam)'.
+
+Attaching package: ‘spam’
+
+The following objects are masked from ‘package:base’:
+
+    backsolve, forwardsolve
+
+Loading required package: viridis
+Loading required package: viridisLite
+See https://github.com/NCAR/Fields for
+ an extensive vignette, other supplements and source code 
+Warning: S3 method ‘predict.splineDensity’ was declared in NAMESPACE but not found
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("poissonSpline")
+> ### * poissonSpline
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: poissonSpline
+> ### Title: Estimates a Poisson cubic smoothing spline
+> ### Aliases: poissonSpline
+> ### Keywords: spatial
+> 
+> ### ** Examples
+> 
+> set.seed(12)
+> x<- seq( 0,1,length.out= 250)
+> alphaTrue<-  exp( 25*x^3*(1-x) )
+> #alphaTrue<-  alphaTrue/ max( alphaTrue)
+> gTrue<- log(alphaTrue )
+> y<- rpois(length( alphaTrue), lambda=alphaTrue)
+> 
+> 
+> lambdaGrid<- 10**( seq( -3, -1,length.out=150))
+> fit1<- poissonSpline( x,y, lambdaGrid= lambdaGrid)
+Loading required package: mgcv
+Loading required package: nlme
+This is mgcv 1.8-33. For overview type 'help("mgcv-package")'.
+> 
+> set.panel(3,1)
+plot window will lay out plots in a 3 by 1 matrix 
+> plot( x,y, pch=16, col="grey", cex=.5)
+> lines( x, alphaTrue, col="red", lty=1)
+> lines( x, fit1$fitted.values, col="blue", lty=1)
+> title("Counts and fitted curve")
+> 
+> plot( x,fit1$gHat, type="l" , col="blue")
+> lines(x , gTrue, col="red")
+> title("Estimated (blue) and true (red) log intensity")
+> 
+> plot( fit1$info[,1], fit1$info[,4] ,
++ type="b",
++ pch=16,cex=.5,
++ xlab="log lambda", ylab="CV function", log="x")
+> xline( (fit1$fit$lambda), col="blue")
+> title("CV criterion with minimum")
+> 
+> 
+> 
+> 
+> 
+> cleanEx()
+
+detaching ‘package:mgcv’, ‘package:nlme’
+
+> nameEx("splineDensity")
+> ### * splineDensity
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: splineDensity
+> ### Title: Log density estimate as a cubic spline
+> ### Aliases: splineDensity
+> 
+> ### ** Examples
+> 
+> # an easy one
+> set.seed( 122)
+> Y<- rnorm( 2000)
+> fitY<- splineDensity( Y)
+Loading required package: mgcv
+Loading required package: nlme
+This is mgcv 1.8-33. For overview type 'help("mgcv-package")'.
+> set.panel(2,2 )
+plot window will lay out plots in a 2 by 2 matrix 
+> plot( fitY)
+> set.panel()
+plot window will lay out plots in a 1 by 1 matrix 
+> 
+> # compact support
+> set.seed( 322)
+> Y <- rbeta( 2000, shape1= 5, shape2=.5)
+> fitY<- splineDensity( Y, xlim=c(0,1), threshold=c(TRUE,TRUE) )
+> set.panel(2,2 )
+plot window will lay out plots in a 2 by 2 matrix 
+> plot( fitY)
+> set.panel()
+plot window will lay out plots in a 1 by 1 matrix 
+> xgrid<- seq( 0,1,,200)
+> hist( Y, prob=TRUE)
+> lines( xgrid, dbeta( xgrid, shape1= 5, shape2=.5), col="grey")
+> lines( xgrid, dsplineDensity( fitY, xgrid) , col="red")
+> 
+> # return levels assuming exponential tails
+> 
+> set.seed( 122)
+> Y<- rgamma( 5000, shape=2.5)
+> fitY<- splineDensity( Y,  threshold=c(TRUE,FALSE))
+> returnLevels<- seq( 5,12,,200)
+> Probs<- psplineDensity( fitY, returnLevels)
+> plot( 1/( 1-Probs), returnLevels, log="x")
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> cleanEx()
+
+detaching ‘package:mgcv’, ‘package:nlme’
+
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  2.007 0.159 2.204 0.003 0.006 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

@@ -1,0 +1,15 @@
+* installing *source* package ‘LHSpline’ ...
+** using staged installation
+** R
+** data
+** byte-compile and prepare package for lazy loading
+Note: ... may be used in an incorrect context 
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+Warning: S3 method ‘predict.splineDensity’ was declared in NAMESPACE but not found
+** testing if installed package can be loaded from final location
+Warning: S3 method ‘predict.splineDensity’ was declared in NAMESPACE but not found
+** testing if installed package keeps a record of temporary installation path
+* DONE (LHSpline)

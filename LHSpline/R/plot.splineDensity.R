@@ -1,11 +1,11 @@
 
 plot.splineDensity<- function( obj, 
-                               which=c( TRUE, TRUE, TRUE, TRUE),
+                               which=1:4,
                                truePdf=NULL,
                                xlim =NULL, ylim=NULL
 ){
   #  set.panel( 3,1)
-  if( which[1]){
+  if( any(which==1)) {
     plot( obj$hist, freq=FALSE )
     lines(obj$pdf, co="blue", lwd=2)
     if( !is.null( truePdf)){
@@ -13,7 +13,7 @@ plot.splineDensity<- function( obj,
     }
     
   }
-  if( which[2]){
+  if( any(which==2)) {
     plot(obj$logPdf, col="blue", type="l", lwd=2,
          xlim=xlim, ylim =ylim,
          ylab="log density function", xlab=" x ")
@@ -23,7 +23,7 @@ plot.splineDensity<- function( obj,
     }
   }
   ## QQ plot 
-  if( which[3]){
+  if( any(which==3) ) {
     N<- length( obj$Y)
     sortY<- sort(obj$Y)
     pY<- psplineDensity( obj, sortY)
@@ -35,7 +35,7 @@ plot.splineDensity<- function( obj,
     abline( 0,1,col="red", lwd=2) 
   }
   
-  if( which[4]& (nrow(obj$info) > 1 ) ){
+  if( any(which==4)& (nrow(obj$info) > 1 ) ) {
     whichCV<- obj$whichCV
     CVlabels<- c("-lnLike", "CVGreenSilverman",
                  "CVIntensity", "CVUnweighted")

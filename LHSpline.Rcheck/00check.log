@@ -1,0 +1,168 @@
+* using log directory ‘/Users/nychka/Dropbox/Home/Repositories/LogHistoSpline/LHSpline.Rcheck’
+* using R version 4.0.3 (2020-10-10)
+* using platform: x86_64-apple-darwin17.0 (64-bit)
+* using session charset: UTF-8
+* checking for file ‘LHSpline/DESCRIPTION’ ... OK
+* this is package ‘LHSpline’ version ‘1.2’
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘LHSpline’ can be installed ... WARNING
+Found the following significant warnings:
+  Warning: S3 method ‘predict.splineDensity’ was declared in NAMESPACE but not found
+See ‘/Users/nychka/Dropbox/Home/Repositories/LogHistoSpline/LHSpline.Rcheck/00install.out’ for details.
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... NOTE
+Authors@R field gives no person with maintainer role, valid email
+address and non-empty name.
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... NOTE
+Warning: S3 method ‘predict.splineDensity’ was declared in NAMESPACE but not found
+
+A namespace must be able to be loaded with just the base namespace
+loaded: otherwise if the namespace gets loaded by a saved object, the
+session will be unable to start.
+
+Probably some imports need to be declared in the NAMESPACE file.
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking dependencies in R code ... WARNING
+'library' or 'require' call not declared from: ‘mgcv’
+'library' or 'require' call to ‘fields’ which was already attached by Depends.
+  Please remove these calls from your code.
+'library' or 'require' call to ‘mgcv’ in package code.
+  Please use :: or requireNamespace() instead.
+  See section 'Suggested packages' in the 'Writing R Extensions' manual.
+Package in Depends field not imported from: ‘fields’
+  These packages need to be imported from (in the NAMESPACE file)
+  for when this namespace is loaded but not attached.
+* checking S3 generic/method consistency ... WARNING
+Warning: declared S3 method 'predict.splineDensity' not found
+plot:
+  function(x, ...)
+plot.splineDensity:
+  function(obj, which, truePdf, xlim, ylim)
+
+plot:
+  function(x, ...)
+plot.splineDensity:
+  function(obj, which, truePdf, xlim, ylim)
+
+print:
+  function(x, ...)
+print.splineDensity:
+  function(obj, ...)
+
+print:
+  function(x, ...)
+print.splineDensity:
+  function(obj, ...)
+
+See section ‘Generic functions and methods’ in the ‘Writing R
+Extensions’ manual.
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+dsplineDensity: no visible global function definition for ‘splint’
+plot.splineDensity: no visible global function definition for ‘lines’
+plot.splineDensity: no visible global function definition for ‘xline’
+plot.splineDensity: no visible global function definition for ‘abline’
+poissonSpline: no visible global function definition for ‘Rad.cov’
+poissonSpline: no visible global function definition for ‘gam’
+poissonSpline: no visible binding for global variable ‘poisson’
+poissonSpline: no visible global function definition for ‘predict’
+poissonSpline: no visible global function definition for ‘splint’
+poissonSplineLambda: no visible global function definition for ‘stats’
+poissonSplineLambda: no visible global function definition for ‘splint’
+poissonSplineLambda: no visible global function definition for ‘sreg’
+predict.PoissonSpline: no visible global function definition for
+  ‘splint’
+print.splineDensity: no visible global function definition for ‘stats’
+psplineDensity: no visible global function definition for ‘approx’
+qsplineDensity: no visible global function definition for ‘approx’
+rsplineDensity: no visible global function definition for ‘runif’
+splineDensity: no visible global function definition for ‘hist’
+splineDensity: no visible global function definition for ‘gam’
+splineDensity: no visible binding for global variable ‘poisson’
+splineDensity: ... may be used in an incorrect context: gam(counts ~
+  s(x, k = N - 3) + binMidpoints, family = poisson, data = dataLocal,
+  ...)
+splineDensity: no visible global function definition for ‘splint’
+Undefined global functions or variables:
+  Rad.cov abline approx gam hist lines poisson predict runif splint
+  sreg stats xline
+Consider adding
+  importFrom("graphics", "abline", "hist", "lines")
+  importFrom("stats", "approx", "poisson", "predict", "runif")
+to your NAMESPACE file.
+* checking Rd files ... WARNING
+man/splineDensity.Rd: non-ASCII input and no declared encoding
+problem found in ‘splineDensity.Rd’
+* checking Rd metadata ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... WARNING
+Undocumented code objects:
+  ‘dsplineDensity’ ‘plot.splineDensity’ ‘poissonSplineLambda’
+  ‘predict.PoissonSpline’ ‘print.splineDensity’ ‘psplineDensity’
+  ‘qsplineDensity’ ‘rsplineDensity’
+Undocumented data sets:
+  ‘BoulderDaily’
+All user-level objects in a package should have documentation entries.
+See chapter ‘Writing R documentation files’ in the ‘Writing R
+Extensions’ manual.
+* checking for code/documentation mismatches ... WARNING
+Codoc mismatches from documentation object 'poissonSpline':
+poissonSplineLambda
+  Code: function(x, y, gStart, lambda, epsilon, nIteration = 10, tol =
+                 1e-06, verbose = FALSE, gFloor = -15, gCeiling = 10)
+  Docs: function(x, y, gStart, lambda, SigmaInv, epsilon, Q, nIteration
+                 = 10, tol = 1e-06, verbose = FALSE, gFloor = -15,
+                 gCeiling = 10)
+  Argument names in docs not in code:
+    SigmaInv Q
+  Mismatches in argument names (first 3):
+    Position: 5 Code: epsilon Docs: SigmaInv
+    Position: 6 Code: nIteration Docs: epsilon
+    Position: 7 Code: tol Docs: Q
+
+* checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'poissonSpline'
+  ‘lambda’ ‘SigmaInv’ ‘Q’ ‘gFloor’ ‘gCeiling’
+Objects in \usage without \alias in documentation object 'poissonSpline':
+  ‘poissonSplineLambda’
+
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See chapter ‘Writing R documentation files’ in the ‘Writing R
+Extensions’ manual.
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking contents of ‘data’ directory ... OK
+* checking data for non-ASCII characters ... OK
+* checking data for ASCII and uncompressed saves ... WARNING
+  
+  Note: significantly better compression could be obtained
+        by using R CMD build --resave-data
+                   old_size new_size compress
+  BoulderDaily.rda    246Kb     89Kb       xz
+* checking examples ... OK
+* checking for unstated dependencies in ‘tests’ ... OK
+* checking tests ... OK
+  Running ‘testspline.R’
+* checking PDF version of manual ... OK
+* DONE
+Status: 8 WARNINGs, 3 NOTEs
