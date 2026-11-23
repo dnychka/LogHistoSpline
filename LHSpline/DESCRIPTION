@@ -1,13 +1,14 @@
 Package: LHSpline
-Version: 1.2
-Date: 2019-05-21
+Version:3.0
+Date: 2026-10-19
 Title: log Histospline density estimate
 Authors@R: c( person("Douglas", "Nychka", role = c("aut", "cre")),
-  person("Whitney", "Huang", role = c("aut")))
+  person("Whitney", "Huang", role = c("aut")),
+  person("Kulikova", "Olga", role = c("aut"))) 
 Author: Douglas Nychka [aut, cre]
 Maintainer: Douglas Nychka <nychka@mines.edu>
 Description: A log spline density estimate based on a cubic smoothing spline. 
 License: GPL (>= 2)
-Depends: R (>= 3.0),fields
+Depends: R (>= 3.0),fields, mgcv
 NeedsCompilation: no
-Packaged: 2019-05-21 ; nychka
+Packaged: 2026-10-19 ; nychka

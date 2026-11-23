@@ -1,9 +1,10 @@
 
-plot.splineDensity<- function( obj, 
+plot.splineDensity<- function( x, 
                                which=1:4,
                                truePdf=NULL,
-                               xlim =NULL, ylim=NULL
+                               xlim =NULL, ylim=NULL,...
 ){
+  obj<- x # kludge to match generic plot call 
   #  set.panel( 3,1)
   if( any(which==1)) {
     plot( obj$hist, freq=FALSE )

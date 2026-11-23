@@ -1,5 +1,5 @@
-print.splineDensity<- function( obj, ...){
-  
+print.splineDensity<- function( x, ...){
+   obj<- x # kludge to match generic print call
     cat("Data summary:", fill=TRUE)
      temp<- as.data.frame( t(stats( obj$Y)) )
      row.names( temp)<- " "

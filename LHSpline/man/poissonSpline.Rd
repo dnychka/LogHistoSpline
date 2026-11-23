@@ -1,19 +1,24 @@
 \name{poissonSpline}
 \alias{poissonSpline}
-%- Also NEED an '\alias' for EACH other topic documented here.
+\alias{poissonSplineLambda}
 \title{Estimates a Poisson cubic smoothing spline
 %%  ~~function to do ... ~~
 }
-\description{This is a lean function to estimate the log intensity using a cubic smoothing spline. The model is assumed to be Poission distributed counts at locations and the smoothing parameter (lambda) is estimated by several different approximate versions of cross-validation. This function can be adapted as to also estimate a continuous probability density from a histogram.
-
-
+\description{This is a lean function to estimate the log 
+intensity using a cubic smoothing spline. 
+The model is assumed to be Poission distributed counts at
+locations and the smoothing parameter (lambda) 
+is estimated by several different approximate versions
+of cross-validation. This function can be adapted as to
+also estimate a continuous probability density from a histogram.
 }
 \usage{
 poissonSpline(x, y, lambdaGrid, gStart = NULL, nIteration = 50, tol = 1e-06,
 epsilon = 0, verbose = FALSE, whichCV = 4)
 
-poissonSplineLambda(x, y, gStart, lambda, SigmaInv, epsilon,
- Q, nIteration = 10, tol = 1e-06, verbose = FALSE, gFloor = -15, gCeiling = 10)
+poissonSplineLambda(x, y, gStart, lambda, epsilon,
+nIteration = 10, tol = 1e-06,
+verbose = FALSE, gFloor = -15, gCeiling = 10)
 }
 \arguments{
   \item{x}{

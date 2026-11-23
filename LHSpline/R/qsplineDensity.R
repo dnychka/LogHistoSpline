@@ -44,10 +44,10 @@ qsplineDensity<- function(obj, prob, probTail=FALSE) {
     Q[ind3] <- 1.0
   }
    if( probTail){ 
-  Q[ind2] <- approx(obj$cdfRoot$y, obj$cdfRoot$x, 1-prob[ind2])$y}
+  Q[ind2] <- splintLinear(obj$cdfRoot$y, obj$cdfRoot$x, 1-prob[ind2])}
    else{
 # piecewise linear interpolation  
-  Q[ind2] <- approx(obj$cdfRoot$y, obj$cdfRoot$x, prob[ind2])$y
+  Q[ind2] <- splintLinear(obj$cdfRoot$y, obj$cdfRoot$x, prob[ind2])
    }
   return(Q)
 }

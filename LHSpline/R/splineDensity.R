@@ -9,7 +9,7 @@ splineDensity<- function( Y, xlim = NULL,
   if( is.na( lambda[1])){
     lambda<- 10**seq( -2,2,,nGrid)
   }
-  require(fields)
+#  require(fields)
   if( is.null( xlim)){
     xlim<- range( Y, na.rm=TRUE)
   }
@@ -27,15 +27,15 @@ splineDensity<- function( Y, xlim = NULL,
   binMidpoints<- brk[1:N] + (brk[2]-brk[1])/2
   histObject<- hist( Y, breaks=brk, plot=FALSE)
   fitMgcv<- NULL
-  if(debug){
-# this is just included for comparision of old method that uses mgcv
-#    
-  require(mgcv)
-   dataLocal<- data.frame( x=binMidpoints, counts= histObject$counts)
-    fitMgcv<- gam(  counts~ s(x, k= N-3) + binMidpoints
-     ,family=poisson, data=dataLocal, ...)
-#   print( summary( fitMgcv))
-  }
+#   if(debug){
+# # this is just included for comparision of old method that uses mgcv
+# #    
+# #  require(mgcv)
+#    dataLocal<- data.frame( x=binMidpoints, counts= histObject$counts)
+#     fitMgcv<- gam(  counts~ s(x, k= N-3) + binMidpoints
+#      ,family=poisson, data=dataLocal, ...)
+# #   print( summary( fitMgcv))
+#   }
 # heavy lifting happens here. NotepoissonSpline
 # is a wrapper for for loop over individual lambda fits.  
    fit<- poissonSpline(x=binMidpoints, y=histObject$counts,

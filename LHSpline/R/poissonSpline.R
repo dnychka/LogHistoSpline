@@ -4,7 +4,7 @@ poissonSpline<- function( x,y, lambdaGrid,  gStart= NULL,
                      epsilon= 0,
                      verbose=FALSE,
                      whichCV=4){
-   require(mgcv)
+#   require(mgcv)
 # this is used as 
 # x midpoints of histogram bins
 # y the bin counts
@@ -22,10 +22,15 @@ poissonSpline<- function( x,y, lambdaGrid,  gStart= NULL,
    N<- sum(y)
    if( is.null(gStart)){
 # 4 knot spline as the starting estimate   
-        dataLocal<- data.frame( x=x, counts= y)
-        fitMgcv<- gam(  counts~ s(x, k= 4) + x
-                        ,family=poisson, data=dataLocal)
-        gStart<- predict(fitMgcv)
+#dataLocal<- data.frame( x=x, counts= y)
+# fitMgcv<- gam(  counts~ s(x, k= 4) + x
+#                 ,family=poisson, data=dataLocal)
+# gStart<- predict(fitMgcv)
+#
+# cubic starting fit
+        X<- cbind( 1, x, x^2, x^3 )
+        GLMFit<- PoissonReg( X, y, Nit=50)
+        gStart<- GLMFit$nuHat
   }
     nGrid<- length( lambdaGrid)
     gHat<- NULL
